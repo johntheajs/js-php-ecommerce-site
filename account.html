@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Account</title>
+  <style>
+  
+    #header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 80px;
+    background: #E3E6F3;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+    z-index: 999;
+    position: sticky;
+    top: 0;
+    left: 0;
+    }
+
+    #navbar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    }
+
+    #navbar li{
+    list-style: none;
+    padding: 0 20px;
+    position: relative;
+    }
+
+    #navbar li a{
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    color: #1a1a1a;
+    transition: 0.3 ease;
+    }
+
+    #navbar li a:hover,
+    #navbar li a.active{
+    color: #088178;
+    }
+
+    #navbar li a.active::after,
+    #navbar li a.hover::after {
+    content: "";
+    width: 30%;
+    height: 2px;
+    background: #088178;
+    position: absolute;
+    bottom: -4px;
+    left: 20px;
+    }
+
+    .content {
+      font-family: Arial, sans-serif;
+      background-color: #f1f1f1;
+      padding: 20px;
+    }
+    body{
+      margin: 0;
+      padding: 0;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    .container {
+      max-width: 400px;
+      margin: 0 auto;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      width: 90%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+    }
+
+    .error-message {
+      color: red;
+      font-size: 14px;
+    }
+
+    .success-message {
+      color: green;
+      font-size: 14px;
+    }
+
+    .btn {
+      background-color: #4caf50;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    .btn:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <section id="header">
+            <a href="#"><img src="img/logo.png" class="logo" alt=""></a>
+
+            <div>
+                <nav>
+                    <ul id="navbar">
+                        <li><a  href="index.html">Home</a></li>
+                        <li><a href="shop.html">Shop</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a  href="contact.html">Contact</a></li>
+                        <li><a class="active" href="account.html">Account</a></li>
+                        <li><a href="cart.html"><i class="fa-light fa-bag-shopping"></i></a></li>
+                    </ul>
+                </nav>
+            </div>
+        </section>
+  <div class="content">
+    <h1>My Account</h1>
+    <div class="container">
+      <h2>Update Username</h2>
+      <form id="updateUsernameForm" action="account.php?action=updateUsername" method="POST">
+        <div class="form-group">
+          <label for="newUsername">New Username:</label>
+          <input type="text" id="newUsername" name="newUsername" required>
+        </div>
+        <div class="form-group">
+          <input type="submit" value="Update Username" class="btn">
+        </div>
+      </form>
+
+      <h2>Update Password</h2>
+      <form id="updatePasswordForm" action="account.php?action=updatePassword" method="POST">
+        <div class="form-group">
+          <label for="currentPassword">Current Password:</label>
+          <input type="password" id="currentPassword" name="currentPassword" required>
+        </div>
+        <div class="form-group">
+          <label for="newPassword">New Password:</label>
+          <input type="password" id="newPassword" name="newPassword" required>
+        </div>
+        <div class="form-group">
+          <input type="submit" value="Update Password" class="btn">
+        </div>
+      </form>
+
+      <h2>Delete Account</h2>
+      <form id="deleteAccountForm" action="account.php?action=deleteAccount" method="POST">
+        <div class="form-group">
+          <label for="confirmDelete">Confirm Deletion:</label>
+          <input type="checkbox" id="confirmDelete" name="confirmDelete" required>
+        </div>
+        <div class="form-group">
+          <input type="submit" value="Delete Account" class="btn" style="background-color: #ff0000;">
+        </div>
+      </form>
+    </div>
+
+  </div>
+</body>
+</html>
